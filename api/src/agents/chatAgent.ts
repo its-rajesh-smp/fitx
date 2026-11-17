@@ -1,6 +1,6 @@
 import { Agent } from "@openai/agents";
 import { z } from "zod";
-import { llmModel } from "../config/llm";
+import { chatModelSettings, llmModel } from "../config/llm";
 import { FitXAgentContext } from "../helpers/chat";
 import {
   createPlanTool,
@@ -49,13 +49,7 @@ export const fitXChatAgent = new Agent<
   name: "FitX Trainer",
   model: llmModel,
   outputType: chatAgentResponseSchema,
-  modelSettings: {
-    // temperature: 0.5,
-    reasoning: {
-      effort: "medium",
-      summary: "concise",
-    },
-  },
+  modelSettings: chatModelSettings,
   tools: [
     getExercisesTool,
     createPlanTool,

@@ -25,6 +25,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.142",
     "@ai-sdk/google": "^3.0.80",
     "@openai/agents": "^0.11.6",
     "@openai/agents-extensions": "^0.11.6",

@@ -1,0 +1,7 @@
+name: fitx
+description: FitX on AWS — ECS Fargate API, RDS Postgres, ECR, and S3 + CloudFront UI
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
+    typescript: true

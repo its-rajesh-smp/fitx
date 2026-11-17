@@ -1,6 +1,6 @@
 import { Agent } from "@openai/agents";
 import { z } from "zod";
-import { memoryLlmModel } from "../config/llm";
+import { memoryLlmModel, memoryModelSettings } from "../config/llm";
 import {
   EXERCISE_EQUIPMENT,
   EXERCISE_LEVELS,
@@ -42,9 +42,7 @@ export const userLongTermMemoryAgent = new Agent({
   name: "User Memory Agent",
   model: memoryLlmModel,
   outputType: userDetailsUpdateSchema,
-  modelSettings: {
-    temperature: 0.5,
-  },
+  modelSettings: memoryModelSettings,
   instructions: `You extract ONLY facts explicitly stated by the user about themselves or their relatives.
 
 Examples:

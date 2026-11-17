@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ai-sdk/anthropic':
+        specifier: ^3.0.142
+        version: 3.0.142(zod@4.4.3)
       '@ai-sdk/google':
         specifier: ^3.0.80
         version: 3.0.80(zod@4.4.3)
@@ -16,7 +19,7 @@ importers:
         version: 0.11.6(ws@8.21.0)(zod@4.4.3)
       '@openai/agents-extensions':
         specifier: ^0.11.6
-        version: 0.11.6(@ai-sdk/provider@3.0.10)(@openai/agents@0.11.6(ws@8.21.0)(zod@4.4.3))(ai@6.0.197(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)
+        version: 0.11.6(@ai-sdk/provider@3.0.19)(@openai/agents@0.11.6(ws@8.21.0)(zod@4.4.3))(ai@6.0.197(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)
       ai:
         specifier: ^6.0.197
         version: 6.0.197(zod@4.4.3)
@@ -87,6 +90,12 @@ importers:
 
 packages:
 
+  '@ai-sdk/anthropic@3.0.142':
+    resolution: {integrity: sha512-EJeOzLcsE6dZ5ilJ6TSXkj7/XJ+o/6197XAlUSMrxcbVYYi4BMJRSkzx5Ah+UYt/aUSN5fGMelEbUlH/edkBxg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
   '@ai-sdk/gateway@3.0.125':
     resolution: {integrity: sha512-tocl7cUDoTpmhZqeW8XVKMMznZQwwQAEunF0VyNKmf64qt8NbMIAEiet/vRMzh7Jr9WcFeb6EZjmhLTP4Qx2Og==}
     engines: {node: '>=18'}
@@ -105,8 +114,18 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
+  '@ai-sdk/provider-utils@4.0.66':
+    resolution: {integrity: sha512-tITCIYBJlxD4PmDIAI2VXb67yEbWRepvJBJrv2pIY5vMRUta51AFRxLlxm0IexRGdIBGuQ10+ClClZMXtawkbA==}
+    engines: {node: '>=18.17'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
   '@ai-sdk/provider@3.0.10':
     resolution: {integrity: sha512-Q3BZ27qfpYqnCYGvE3vt+Qi6LGOF9R5Nmzn+9JoM1lCRsD9mYaIhfJLkSunN48nfGXJ6n+XNV0J/XVpqGQl7Dw==}
+    engines: {node: '>=18'}
+
+  '@ai-sdk/provider@3.0.19':
+    resolution: {integrity: sha512-5lWq7zSfRaU5ylDESn3sDQjgGl2AI1vjZKO/6JY3aFW70ct4zcP1kN+ZUYOuTXr28fVsYbyu2YFhddLdIgQFZQ==}
     engines: {node: '>=18'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -1084,6 +1103,10 @@ packages:
   undici-types@7.19.2:
     resolution: {integrity: sha512-qYVnV5OEm2AW8cJMCpdV20CDyaN3g0AjDlOGf1OW4iaDEx8MwdtChUp4zu4H0VP3nDRF/8RKWH+IPp9uW0YGZg==}
 
+  undici@6.29.1:
+    resolution: {integrity: sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==}
+    engines: {node: '>=18.17'}
+
   unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
@@ -1133,6 +1156,12 @@ packages:
 
 snapshots:
 
+  '@ai-sdk/anthropic@3.0.142(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 3.0.19
+      '@ai-sdk/provider-utils': 4.0.66(zod@4.4.3)
+      zod: 4.4.3
+
   '@ai-sdk/gateway@3.0.125(zod@4.4.3)':
     dependencies:
       '@ai-sdk/provider': 3.0.10
@@ -1153,7 +1182,19 @@ snapshots:
       eventsource-parser: 3.1.0
       zod: 4.4.3
 
+  '@ai-sdk/provider-utils@4.0.66(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 3.0.19
+      '@standard-schema/spec': 1.1.0
+      eventsource-parser: 3.1.0
+      undici: 6.29.1
+      zod: 4.4.3
+
   '@ai-sdk/provider@3.0.10':
+    dependencies:
+      json-schema: 0.4.0
+
+  '@ai-sdk/provider@3.0.19':
     dependencies:
       json-schema: 0.4.0
 
@@ -1212,7 +1253,7 @@ snapshots:
       - supports-color
       - ws
 
-  '@openai/agents-extensions@0.11.6(@ai-sdk/provider@3.0.10)(@openai/agents@0.11.6(ws@8.21.0)(zod@4.4.3))(ai@6.0.197(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)':
+  '@openai/agents-extensions@0.11.6(@ai-sdk/provider@3.0.19)(@openai/agents@0.11.6(ws@8.21.0)(zod@4.4.3))(ai@6.0.197(zod@4.4.3))(ws@8.21.0)(zod@4.4.3)':
     dependencies:
       '@openai/agents': 0.11.6(ws@8.21.0)(zod@4.4.3)
       '@openai/agents-core': 0.11.6(ws@8.21.0)(zod@4.4.3)
@@ -1221,7 +1262,7 @@ snapshots:
       ws: 8.21.0
       zod: 4.4.3
     optionalDependencies:
-      '@ai-sdk/provider': 3.0.10
+      '@ai-sdk/provider': 3.0.19
       ai: 6.0.197(zod@4.4.3)
     transitivePeerDependencies:
       - '@cfworker/json-schema'
@@ -2119,6 +2160,8 @@ snapshots:
   undefsafe@2.0.5: {}
 
   undici-types@7.19.2: {}
+
+  undici@6.29.1: {}
 
   unpipe@1.0.0: {}
 

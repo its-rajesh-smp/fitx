@@ -1,0 +1,46 @@
+# Non-secret configuration for the `prod` stack.
+# Secrets are added with `pulumi config set --secret <key> <value>` (see README.md),
+# which writes encrypted values into this file.
+config:
+  aws:region: ap-south-1
+  aws:profile: repairs
+  aws:defaultTags:
+    tags:
+      Project: fitx
+      Environment: prod
+      ManagedBy: pulumi
+  # --- Custom domain (optional) ---
+  # Without these the app is served on the default https://<id>.cloudfront.net URL.
+  # Requires a public Route 53 hosted zone for hostedZoneName.
+  # fitx:hostedZoneName: example.com
+  # fitx:uiDomain: fitx.example.com
+
+  # --- Network ---
+  # none | single | onePerAz. "none" runs tasks in public subnets with a public IP (cheapest).
+  fitx:natGateways: single
+  # --- Database ---
+  fitx:dbInstanceClass: db.t4g.micro
+  fitx:dbAllocatedStorage: "20"
+  fitx:dbMultiAz: "false"
+  fitx:dbDeletionProtection: "true"
+  # --- API service ---
+  fitx:apiCpu: "512"
+  fitx:apiMemory: "1024"
+  fitx:apiMinCount: "1"
+  fitx:apiMaxCount: "3"
+  fitx:aiProvider: anthropic
+  fitx:geminiModel: gemini-2.5-flash-lite
+  fitx:openaiModel: gpt-4.1-mini
+  fitx:openaiMemoryModel: gpt-4.1-mini
+  # --- Public (non-secret) app settings ---
+  fitx:googleClientId: ""
+  fitx:jwtSecret:
+    secure: v1:VTEfgyxpF30u2lqa:yXVK98XbHgfrihLuQpHSWgCsB+ZKqd0dVAQjNeh2sYst7dtARfRxlRXMkGIcguUih7JOjBp3sCfh2ocS2rOC/7IdhYrqs2M7+/Z50b7hk7s=
+  fitx:geminiApiKey:
+    secure: v1:hL2pX9twagDHH+YA:kZR/AWJGHMnVtLRRZRPx2yoGYnR5J7+SI+KV+86ZBa8u6NTUg/FhIibPfmGGjHjlavwGdSml4z3HL36vw7J1LIcYnu2J
+  fitx:openaiApiKey:
+    secure: v1:rRHcNI47C2y7HiBC:zmzKf0yJaO8aHXutlZtaBt2NRnSLpj7krieMcN+OENqoijGDn9Gu/xjATCGcmBcGShZdzCqNA4hZ/r5xvyiQKlJq+w==
+  fitx:dbSkipFinalSnapshot: "false"
+  fitx:anthropicApiKey:
+    secure: v1:NSa/pQyIP72ygqTA:hteHKs6+eEWi7eBNFE6FjMnkRfB8dyGieg4Mk8z805V3tfmnf2VNo7HiYzT+JeTKFQgeCLtN0sJknshSt6S8uxsiFEUF+v9B2ZRU4B0c+sE29V2eMW63WmUAY7iMmdit4sZRD0U9EANzRSOWTJsKxcTg8JVPMjEzcc9IgA==
+encryptionsalt: v1:e2LUG53tkoM=:v1:dAFiMGGsGYEblZHg:btgTdYnN3qJPkXb0UWa9RQ8r99FFkw==
