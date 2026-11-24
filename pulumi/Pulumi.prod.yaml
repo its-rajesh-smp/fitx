@@ -43,6 +43,4 @@ config:
   fitx:dbSkipFinalSnapshot: "false"
   fitx:anthropicApiKey:
     secure: v1:NSa/pQyIP72ygqTA:hteHKs6+eEWi7eBNFE6FjMnkRfB8dyGieg4Mk8z805V3tfmnf2VNo7HiYzT+JeTKFQgeCLtN0sJknshSt6S8uxsiFEUF+v9B2ZRU4B0c+sE29V2eMW63WmUAY7iMmdit4sZRD0U9EANzRSOWTJsKxcTg8JVPMjEzcc9IgA==
-  fitx:hostedZoneName: fitx.itsrajeshsmp.online
-  fitx:uiDomain: fitx.itsrajeshsmp.online
 encryptionsalt: v1:e2LUG53tkoM=:v1:dAFiMGGsGYEblZHg:btgTdYnN3qJPkXb0UWa9RQ8r99FFkw==
